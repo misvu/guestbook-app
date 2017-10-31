@@ -3,24 +3,37 @@
 <head>
     <title></title>
 	<meta charset="utf-8" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <script src="{{ url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+
+
+
 </head>
 <body>
-    <div class="container"></div>
+    <div class="container-fluid">
     <header>
-        <h1 class="logo">Stockholm</h1>
+
         <nav id="mainNavigation">
             <ul>
                 <li><a href="{{ url_for('index') }}">Home</a></li>
                 <li><a href="{{ url_for('about') }}">About</a></li>
-                <li>To do</li>
+                <li><a href="{{ url_for('sightseeing') }}">Sightseeing</a></li>
+                <li><a href="{{ url_for('eat') }}">Eat</a></li>
+                <li><a href="{{ url_for('guestbook') }}">Guestbook</a></li>
             </ul>
         </nav>
     </header>
-    <div class="container">
+        <div class="pageContainer">
         {% block content %}
         {% endblock %}
+        </div>
     </div>
+
+
+
 
 </body>
 </html>
