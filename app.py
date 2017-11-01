@@ -1,6 +1,10 @@
-﻿from flask import Flask, Response, render_template, request, redirect
+﻿from flask import Flask, Response, render_template, request, redirect, url_for
+import sqlite3
 
 app = Flask(__name__, static_folder="static", static_path="")
+DB_FILE="mydb"
+
+comments = []
 
 @app.route('/')
 def index():
@@ -22,7 +26,12 @@ def sightseeing():
 
 @app.route('/guestbook',methods = ['POST', 'GET'])
 def guestbook():
-	return render_template('guestbook.html')
+	if request.method == "GET":
+		return render_template("guestbook.html", comments=comments)
+	comments.append(request.form["commentContent"])
+	return redirect(url_for('guestbook'))
+
+
 
 
 @app.route('/resultTest',methods = ['POST', 'GET'])

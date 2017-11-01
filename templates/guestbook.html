@@ -5,71 +5,54 @@
 
 
     <div class="row">
-
     <div class="col-sm-3">
-
     </div>
 
     <div class="col-sm-6">
     <main>
-        <form action = "http://localhost:5000/resultTest" method = "POST">
+
+        <form action = "http://localhost:5000/guestbook" method = "POST">
             <div class="form-group">
                 <label for="name">Name:</label>
                 <input type="text" class="form-control" id="name" placeholder="Name">
             </div>
             <div class="form-group">
 
-                <textarea class="form-control" rows="5" name="comment"></textarea>
+                <textarea class="form-control" rows="5" name="commentContent" placeholder="Write a comment"></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Comment</button>
         </form>
 
+          {% for comment in comments %}
+            <div style="background-color: white">
+                {{ comment }}
+            </div>
+        {% endfor %}
+
+
     </main>
     </div>
-    </div>
-
-<!--
-
-
-
-
-    <form action = "http://localhost:5000/resultTest" method = "POST">
-		 <p>Name <input type = "text" name = "Name" /></p>
-         <p>Physics <input type = "text" name = "Physics" /></p>
-         <p>Chemistry <input type = "text" name = "Chemistry" /></p>
-         <p>Maths <input type ="text" name = "Mathematics" /></p>
-         <p><input type = "submit" value = "submit" /></p>
-      </form>
-
-
--->
-
-
-
 
 
        <div class="col-sm-3">
-           <!--
-                 <form>
-            <div class="form-group">
-                <label for="user">Name</label>
-                <input type="text" class="form-control" id="name" placeholder="Name">
-            </div>
+                 <form action = "http://localhost:5000/guestbook" method = "POST">
+                     <div class="form-group">
+                         <label for="name">Username:</label>
+                          <input type="text" class="form-control" id="username" placeholder="Username">
+                     </div>
+                      <div class="form-group">
+                          <label for="password">Password:</label>
+                          <input type="password" class="form-control" id="password" placeholder="Password">
+                      </div>
+                     <button type="submit" class="btn btn-primary">Login</button>
+                 </form>
 
-              <div class="form-group">
-                 <label for="inputPassword">Password</label>
-                <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-             </div>
-
-            <div class="form-group">
-                <label for="inputEmail">Email</label>
-                <input type="email" class="form-control" id="inputEmail" placeholder="Email">
-            </div>
-            <button type="submit" class="btn btn-primary">Login</button>
-        </form>
+           {% if error %}
+                <p class="error"><strong>Error:</strong> {{ error }}
+           {% endif %}
        </div>
-       -->
-    </div>
+
+    </div> <!-- end of .row -->
 
 
 {% endblock %}
