@@ -1,9 +1,10 @@
-﻿from flask import Flask, Response, render_template, request, redirect, url_for
+﻿from flask import Flask, render_template, request, redirect, url_for, session
+import os
 from flask import g
-import sys
 import sqlite3
 
 app = Flask(__name__, static_folder="static", static_path="")
+app.secret_key = os.urandom(24)
 DB_FILE="guestbook"
 
 comments = []
@@ -17,6 +18,11 @@ def fetch_all_comment():
 	cursor = g.db.cursor()
 	cursor.execute("SELECT name, comment, date from comment")
 	return list(cursor.fetchall())
+
+def insert_user(name, username, city, password):
+	cursor = g.db.cursor()
+	cursor.execute("INSERT INTO user VALUES(name, username, city, password)")
+	g.db.commit()
 
 @app.before_request
 def before_request():
@@ -45,26 +51,26 @@ def eat():
 def sightseeing():
 	return render_template('sightseeing.html')
 
-
 @app.route('/guestbook',methods = ['POST', 'GET'])
 def guestbook():
 	if request.method == "GET":
-		return render_template("guestbook.html", comments=fetch_all_comment())
-
+		user = {'nickname': 'Anna'}
+		return render_template("guestbook.html", comments=fetch_all_comment(), user=user)
 	comment = request.form["commentContent"]
 	name = request.form["name"]
 	insert_comment(name, comment)
 	return redirect(url_for('guestbook'))
 
-
-
-
-@app.route('/resultTest',methods = ['POST', 'GET'])
-def resultTest():
-	if request.method == 'POST':
-		result = request.form['comment']
-		print(result)
-		return render_template("resultTest.html", result = result)
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+	if request.method == "POST":
+		name = request.form["name"]
+		username = request.form["username"]
+		city = request.form["city"]
+		password = request.form["pwd"]
+		insert_user(name, username, city, password)
+		return redirect(url_for('register'))
+	return render_template('register.html')
 
 
 
