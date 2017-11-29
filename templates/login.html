@@ -10,8 +10,17 @@
 
 
     <div class="col-sm-6">
-        <div style="width: 200px; height: 300px; background-color: white; margin-top: 100px">
-         {{result}}
+          <form action = "/guestbook-loggedin" method = "POST">
+                     <div class="form-group">
+                         <label for="name">Username:</label>
+                          <input type="text" class="form-control" name="usernm" placeholder="Username">
+                     </div>
+                      <div class="form-group">
+                          <label for="password">Password:</label>
+                          <input type="password" class="form-control" name="passwd" placeholder="Password">
+                      </div>
+                     <button type="submit" class="btn btn-primary">Login</button>
+          </form>
 
     </div>
 
@@ -19,7 +28,6 @@
              </div>
 
             <div class="col-sm-3">
-                <p>LOGGED IN</p>
 
             </div>
 

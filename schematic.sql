@@ -1,16 +1,26 @@
 drop table if exists user;
 create table user (
-	id int primary key, 
-	username text not null,
-	name text not null,
-	city text not null,
-	password text
+	USERNAME TEXT PRIMARY KEY,
+	NAME TEXT not null,
+	CITY TEXT not null,
+	PASSWORD TEXT NOT NULL
 );
 
 drop table if exists comment;
 create table comment (
-	id int primary key,
-	name text not null,
-	comment text not null,
-	date date not null
+	COMMENTID INTEGER PRIMARY KEY,
+	USERNAME TEXT NOT NULL,
+	NAME TEXT NOT NULL,
+	COMMENT TEXT NOT NULL,
+	DATE DATE NOT NULL,
+	FOREIGN KEY(USERNAME) REFERENCES user(USERNAME)
 );
+
+drop table if exists file;
+create table file (
+  COMMENTID INTEGER,
+  ATTACHMENT BLOB NOT NULL,
+  PRIMARY KEY(COMMENTID),
+  FOREIGN KEY(COMMENTID) REFERENCES comment(COMMENTID)
+);
+

@@ -25,9 +25,17 @@
            <input type="password" class="form-control" name="pwd" placeholder="Password">
        </div>
 
-   <button type="submit" class="btn btn-primary">Register</button>
-
+        <button type="submit" class="btn btn-default">Register</button>
    </form>
+
+     {{ msg }}
+
+     {% for username in users %}
+            <div style="background-color: white">
+                {{ username }}
+            </div>
+        {% endfor %}
+     <button type="button">LOGIN</button>
     </div>
 
  <div class="col-sm-3">

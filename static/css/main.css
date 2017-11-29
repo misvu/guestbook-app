@@ -1,4 +1,12 @@
-﻿
+﻿body {
+         background-image: url("../images/sthlm.jpg") ;
+         background-position: center center;
+         background-repeat: no-repeat;
+         background-size: cover;
+         background-attachment: fixed;
+         background-color: white;
+
+     }
 
 .container-fluid {
     padding: 0px;
@@ -48,6 +56,11 @@ li{
   position: relative;
 }
 
+.animation-box-welcome {
+    width: 30%;
+    height: 15rem;
+}
+
 
 .first-text {
   font-size: 4.4rem;
@@ -59,6 +72,12 @@ li{
   animation-duration: 5s;
     animation-fill-mode: forwards;
   color: black;
+}
+
+.first-text-welcome {
+    font-size: 1.5rem;
+    left: 1rem;
+    top: 0rem;
 }
 
 @keyframes topFadeOut {
