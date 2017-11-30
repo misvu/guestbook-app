@@ -13,17 +13,20 @@ DB_FILE = "guestbook"
 
 comments = []
 
+usernameOutput = "user"
 
-def insert_comment(name, comment):
+def insert_comment(comment):
     cursor = g.db.cursor()
-    cursor.execute("INSERT INTO comment(name, comment, DATE) values(?,?, date('now'))", (name, comment))
+    comment = cursor.execute("INSERT INTO comment(username, comment, DATE) values(?,?, date('now'))", (usernameOutput, comment))
     g.db.commit()
+    return comment.lastrowid
 
 
 def fetch_all_comment():
     cursor = g.db.cursor()
-    cursor.execute("SELECT name, comment, date FROM comment")
-    return list(cursor.fetchall())
+    result = cursor.execute("SELECT cm.username, cm.comment, f.image FROM comment AS cm LEFT JOIN file AS f ON cm.commentid=f.commentid")
+    listt = list(cursor.fetchall())
+    return listt
 
 
 def fetch_all_users():
@@ -73,36 +76,51 @@ def guestbook():
 def login():
 
     if request.method == "POST":
+
         username = request.form["usernm"]
         password = request.form["passwd"]
         cursor = g.db.cursor()
+
         try:
-            cursor.execute("SELECT USERNAME FROM USER WHERE USERNAME=?", (username))
-            if cursor.fetchone() == None:
+            usernameDB = cursor.execute("SELECT USERNAME FROM USER WHERE USERNAME=?", [username]).fetchone()[0]
+            passwordDB = cursor.execute("SELECT PASSWORD FROM USER WHERE USERNAME=?", [username]).fetchone()[0]
+
+            if usernameDB == False:
                 flash("No user with that name")
                 return redirect(url_for("login"))
-            elif password != cursor.execute("SELECT PASSWORD FROM USER WHERE USERNAME=?", (username)):
+            elif password != passwordDB:
                 flash("Wrong password!")
                 return redirect(url_for("login"))
-            flash("Logged in sucessfully")
-            return redirect(url_for("guestbook-loggedin"))
-        except sqlite3.IntegrityError:
+            else:
+                flash("Logged in sucessfully")
+                global usernameOutput
+                usernameOutput = usernameDB
+                return redirect(url_for("guestbookloggedin"))
+        except (sqlite3.IntegrityError, TypeError):
             flash("error")
             return render_template("login.html")
+
     return render_template("login.html")
 
 
 
 
-@app.route('/guestbook-loggedin', methods=['GET', 'POST'])
+@app.route('/guestbookloggedin', methods=['GET', 'POST'])
 def guestbookloggedin():
     if request.method == "GET":
-        user = {'nickname': 'Anna'}
-        return render_template('guestbook-loggedin.html', comments=fetch_all_comment(), user=user)
-    name = request.form["name"]
+        return render_template('guestbookloggedin.html', comments=fetch_all_comment(), user=usernameOutput)
+
     comment = request.form["commentContent"]
-    insert_comment(name, comment)
+    commentid = insert_comment(comment)
+    cursor = g.db.cursor()
+    file = request.files['file']
+    file.save(os.path.join("G:\www\hometown-webpage\\files", file.filename))
+    filename = file.filename
+    cursor.execute("INSERT INTO FILE (commentID, image) VALUES(?,?)", (commentid, filename))
+    g.db.commit()
     return redirect(url_for('guestbookloggedin'))
+
+
 
 
 @app.route('/register', methods=['GET', 'POST'])

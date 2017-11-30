@@ -1,13 +1,28 @@
 ﻿{% extends "layout.html" %}
 
+{% block style %}
+     <style>
+        body {
+
+         background-image: url({{ url_for('static', filename='images/sthlm.jpg') }});
+
+         background-position: center center;
+         background-repeat: no-repeat;
+         background-size: cover;
+         background-attachment: fixed;
+         background-color: white;
+        }
+    </style>
+{% endblock %}
+
 
 {% block content %}
 
     <main>
         <div class="animation-box">
-            <div class="first-text">My Stockholm</div>
+            <div class="first-text">Stockholm</div>
         </div>
 
-
     </main>
+
 {% endblock %}

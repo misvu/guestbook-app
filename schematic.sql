@@ -10,7 +10,6 @@ drop table if exists comment;
 create table comment (
 	COMMENTID INTEGER PRIMARY KEY,
 	USERNAME TEXT NOT NULL,
-	NAME TEXT NOT NULL,
 	COMMENT TEXT NOT NULL,
 	DATE DATE NOT NULL,
 	FOREIGN KEY(USERNAME) REFERENCES user(USERNAME)
@@ -19,7 +18,7 @@ create table comment (
 drop table if exists file;
 create table file (
   COMMENTID INTEGER,
-  ATTACHMENT BLOB NOT NULL,
+  IMAGE TEXT NOT NULL,
   PRIMARY KEY(COMMENTID),
   FOREIGN KEY(COMMENTID) REFERENCES comment(COMMENTID)
 );

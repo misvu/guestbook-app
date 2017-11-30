@@ -9,21 +9,19 @@
 
         <div class="col-sm-6">
 
-      <p>Welcome {{ user.nickname }}</p>
+      <p>Welcome {{ user }} !</p>
 
             <button type="button"><a href="guestbook">Log out</a></button>
-            <form action = "/guestbook-loggedin" method = "POST">
-                <div class="form-group">
-                    <input type="text" class="form-control" name="name" placeholder="Name">
-                </div>
+            <form action = "/guestbookloggedin" method = "POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <textarea class="form-control" rows="5" name="commentContent" placeholder="Write a comment"></textarea>
                 </div>
+                <input type="file" name="file" accept=".png, .jpg, .jpeg">
                 <button type="submit" class="btn btn-primary">Comment</button>
             </form>
 
 
-          {% for name, comment, date in comments %}
+          {% for username, comment, date in comments %}
             <div style="background-color: white">
                 {{ comment }}
             </div>
