@@ -2,6 +2,7 @@
 import os
 from flask import g
 import sqlite3
+import string
 
 app = Flask(__name__, static_folder="static", static_path="")
 
@@ -27,12 +28,6 @@ def fetch_all_comment():
     result = cursor.execute("SELECT cm.username, cm.comment, f.image FROM comment AS cm LEFT JOIN file AS f ON cm.commentid=f.commentid")
     listt = list(cursor.fetchall())
     return listt
-
-
-def fetch_all_users():
-    cursor = g.db.cursor()
-    cursor.execute("SELECT username FROM USER")
-    return list(cursor.fetchall())
 
 
 @app.before_request
@@ -89,7 +84,7 @@ def login():
                 flash("No user with that name")
                 return redirect(url_for("login"))
             elif password != passwordDB:
-                flash("Wrong password!")
+                flash("Incorrect username or password")
                 return redirect(url_for("login"))
             else:
                 flash("Logged in sucessfully")
@@ -97,7 +92,7 @@ def login():
                 usernameOutput = usernameDB
                 return redirect(url_for("guestbookloggedin"))
         except (sqlite3.IntegrityError, TypeError):
-            flash("error")
+            flash("Incorrect username or password")
             return render_template("login.html")
 
     return render_template("login.html")
@@ -108,13 +103,14 @@ def login():
 @app.route('/guestbookloggedin', methods=['GET', 'POST'])
 def guestbookloggedin():
     if request.method == "GET":
-        return render_template('guestbookloggedin.html', comments=fetch_all_comment(), user=usernameOutput)
+
+        return render_template('guestbookloggedin.html', comments=fetch_all_comment(), user=usernameOutput.upper())
 
     comment = request.form["commentContent"]
     commentid = insert_comment(comment)
     cursor = g.db.cursor()
     file = request.files['file']
-    file.save(os.path.join("G:\www\hometown-webpage\\files", file.filename))
+    file.save(os.path.join("G:\www\hometown-webpage\static\images\\files", file.filename))
     filename = file.filename
     cursor.execute("INSERT INTO FILE (commentID, image) VALUES(?,?)", (commentid, filename))
     g.db.commit()
@@ -126,7 +122,7 @@ def guestbookloggedin():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == "GET":
-        return render_template('register.html', users=fetch_all_users())
+        return render_template('register.html')
     try:
         name = request.form["name"]
         username = request.form["username"]
@@ -138,9 +134,9 @@ def register():
                        (name, username, city, password))
         g.db.commit()
         flash("Successfully registered")
-        return redirect(url_for("guestbookloggedin"))
+        return redirect(url_for("guestbook"))
     except sqlite3.IntegrityError:
-        flash("Error in registration form!")
+        flash("Something went wrong!")
         return redirect(url_for("register"))
 
 

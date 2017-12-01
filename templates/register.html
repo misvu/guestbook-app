@@ -1,4 +1,17 @@
 {% extends "layout.html" %}
+{% block style %}
+    <style>
+        body {
+
+         background-image: url({{ url_for('static', filename='images/sthlmlogin.jpg') }});
+         background-position: center center;
+         background-repeat: no-repeat;
+         background-size: cover;
+         background-attachment: fixed;
+         background-color: white;
+        }
+    </style>
+{% endblock %}
 {% block content %}
 
 <div class="row">
@@ -9,33 +22,21 @@
 
    <form action = "/register" method = "POST">
        <div class="form-group">
-           <label for="name">Name:</label>
            <input type="text" class="form-control" name="name" placeholder="Name">
        </div>
        <div class="form-group">
-           <label for="username">Username:</label>
            <input type="text" class="form-control" name="username" placeholder="Username">
        </div>
      <div class="form-group">
-           <label for="city">City:</label>
            <input type="text" class="form-control" name="city" placeholder="City">
      </div>
        <div class="form-group">
-           <label for="pwd">Password:</label>
            <input type="password" class="form-control" name="pwd" placeholder="Password">
        </div>
 
-        <button type="submit" class="btn btn-default">Register</button>
+        <button type="submit" class="btn btn-primary">Create Account</button>
    </form>
 
-     {{ msg }}
-
-     {% for username in users %}
-            <div style="background-color: white">
-                {{ username }}
-            </div>
-        {% endfor %}
-     <button type="button">LOGIN</button>
     </div>
 
  <div class="col-sm-3">

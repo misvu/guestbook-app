@@ -1,4 +1,18 @@
 {% extends "layout.html" %}
+{% block style %}
+    <style>
+        body {
+
+         background-image: url({{ url_for('static', filename='images/sthlmlogin.jpg') }});
+
+         background-position: center center;
+         background-repeat: no-repeat;
+         background-size: cover;
+         background-attachment: fixed;
+         background-color: white;
+        }
+    </style>
+{% endblock %}
 
 {% block content %}
 
@@ -12,11 +26,9 @@
     <div class="col-sm-6">
           <form action = "/login" method = "POST">
                      <div class="form-group">
-                         <label for="name">Username:</label>
                           <input type="text" class="form-control" name="usernm" placeholder="Username">
                      </div>
                       <div class="form-group">
-                          <label for="password">Password:</label>
                           <input type="password" class="form-control" name="passwd" placeholder="Password">
                       </div>
                      <button type="submit" class="btn btn-primary">Login</button>

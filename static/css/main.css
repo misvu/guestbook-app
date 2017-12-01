@@ -22,7 +22,7 @@ section {
      top: 0;
      width: 100%;
      background-color: rgba(0, 0, 0, 0.6);
-     height: 40px;
+     height: 50px;
      z-index: 9999;
      position: fixed;
 }
@@ -30,6 +30,11 @@ section {
 #mainNavigation a{
     color: white;
 }
+
+ul{
+    margin-top: 10px;
+}
+
 
 
 
@@ -51,16 +56,11 @@ li{
 
 .animation-box {
   width: 75%;
-  height: 27.5rem;
+  height: 12rem;
   background-color: transparent;
   margin: 0 auto;
   overflow: hidden;
   position: relative;
-}
-
-.animation-box-welcome {
-    width: 30%;
-    height: 15rem;
 }
 
 
@@ -74,6 +74,10 @@ li{
   animation-duration: 5s;
     animation-fill-mode: forwards;
   color: black;
+}
+
+.abouttext {
+   margin-left: 5rem;
 }
 
 .first-text-welcome {
@@ -100,3 +104,14 @@ li{
       position: absolute;
   }
 }
+
+
+.comment{
+    width: 650px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    background-color: white;
+    box-shadow: 0px 0px 9px 3px rgba(143,143,143,0.46);
+    margin: auto;
+}
+

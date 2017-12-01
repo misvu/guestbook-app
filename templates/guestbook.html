@@ -1,5 +1,18 @@
 {% extends "layout.html" %}
+{% block style %}
+    <style>
+        body {
 
+         background-image: url({{ url_for('static', filename='images/sthlmlogin.jpg') }});
+
+         background-position: center center;
+         background-repeat: no-repeat;
+         background-size: cover;
+         background-attachment: fixed;
+         background-color: white;
+        }
+    </style>
+{% endblock %}
 
 {% block content %}
 
@@ -11,10 +24,15 @@
     <div class="col-sm-6">
     <main>
 
+        <div style="margin: auto">
+
+            <p>Login or Create an account to see the guestbook!</p>
+
         <a href="login"><button type="button" class="btn btn-primary">Login</button></a>
 
 
-        <a href="register"><button type="button" class="btn btn-primary">Register</button></a>
+        <a href="register"><button type="button" class="btn btn-primary">Create account</button></a>
+        </div>
 
 
 

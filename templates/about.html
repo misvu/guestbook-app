@@ -1,9 +1,17 @@
 ﻿{% extends "layout.html" %}
 
 {% block style %}
-     <style>
+    <style>
+
         body {
-         background-color: darkblue;
+
+         background-image: url({{ url_for('static', filename='images/sthlmabout.jpg') }});
+
+         background-position: center center;
+         background-repeat: no-repeat;
+         background-size: cover;
+         background-attachment: fixed;
+         background-color: white;
         }
     </style>
 {% endblock %}
@@ -13,6 +21,18 @@
     <div class="animation-box">
             <div class="first-text">ABOUT</div>
         </div>
+
+    <div class="abouttext">
+    <p>Stockholm is the capital of Sweden and the most populous city in the
+        <br>Nordic countries, approximately 1.5 million lives in the urban area and 2.3 million in
+        <br>the metropolitan area. Apart from being Sweden's capital, Stockholm houses
+        <br>many national cultural institutions. The Stockholm region is home to three of
+        <br>Sweden's World Heritage Sites – spots judged as invaluable places that belong to
+        <br>all of humanity: The Drottningholm Palace, Skogskyrkogården (The Woodland Cemetery)
+        <br>and Birka. In 1998, Stockholm was named European Capital of Culture. </p>
+    </div>
+
+
 
 
 {% endblock %}
