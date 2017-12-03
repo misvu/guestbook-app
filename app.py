@@ -25,8 +25,10 @@ def insert_comment(comment):
 
 def fetch_all_comment():
     cursor = g.db.cursor()
-    result = cursor.execute("SELECT cm.username, cm.comment, f.image FROM comment AS cm LEFT JOIN file AS f ON cm.commentid=f.commentid")
+    #cursor.execute("SELECT cm.username, cm.comment, f.image FROM comment AS cm LEFT JOIN file AS f ON cm.commentid=f.commentid")
+    cursor.execute("SELECT cm.username, cm.comment, f.image, u.name, u.city FROM comment AS cm LEFT JOIN ")
     listt = list(cursor.fetchall())
+    listt.reverse()
     return listt
 
 
@@ -109,11 +111,15 @@ def guestbookloggedin():
     comment = request.form["commentContent"]
     commentid = insert_comment(comment)
     cursor = g.db.cursor()
-    file = request.files['file']
-    file.save(os.path.join("G:\www\hometown-webpage\static\images\\files", file.filename))
-    filename = file.filename
-    cursor.execute("INSERT INTO FILE (commentID, image) VALUES(?,?)", (commentid, filename))
-    g.db.commit()
+    try:
+        file = request.files['file']
+        file.save(os.path.join("G:\www\hometown-webpage\static\images\\files", file.filename))
+        filename = file.filename
+        cursor.execute("INSERT INTO FILE (commentID, image) VALUES(?,?)", (commentid, filename))
+        g.db.commit()
+    except FileNotFoundError:
+        pass
+
     return redirect(url_for('guestbookloggedin'))
 
 
