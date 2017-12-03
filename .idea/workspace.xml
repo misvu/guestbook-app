@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5fc326d2-901e-4e5c-8e34-035fb3e4974e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/guestbook.db" afterPath="$PROJECT_DIR$/guestbook.db" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.py" afterPath="$PROJECT_DIR$/app.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/guestbookloggedin.html" afterPath="$PROJECT_DIR$/templates/guestbookloggedin.html" />
-    </list>
+    <list default="true" id="5fc326d2-901e-4e5c-8e34-035fb3e4974e" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -59,11 +54,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+            <state relative-caret-position="123">
+              <caret line="24" column="28" lean-forward="true" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
               <folding>
                 <element signature="e#0#75#0" expanded="true" />
                 <marker date="1512327760000" expanded="true" signature="497:566" ph="INSERT INTO comment... " />
@@ -80,6 +75,16 @@
                 <marker date="1512327760000" expanded="true" signature="3344:3391" ph="INSERT INTO FILE... " />
                 <marker date="1512327760000" expanded="true" signature="3902:3970" ph="INSERT INTO USER... " />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pip-selfcheck.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/env/pip-selfcheck.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -170,6 +175,12 @@
             <path>
               <item name="hometown-webpage" type="b2602c69:ProjectViewProjectNode" />
               <item name="hometown-webpage" type="462c0819:PsiDirectoryNode" />
+              <item name="env" type="462c0819:PsiDirectoryNode" />
+              <item name="Lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hometown-webpage" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hometown-webpage" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -182,6 +193,10 @@
               <item name="hometown-webpage" type="b2602c69:ProjectViewProjectNode" />
               <item name="hometown-webpage" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hometown-webpage" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
@@ -252,9 +267,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14714494" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14714494" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12202853" sideWeight="0.31112736" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -316,29 +330,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="901">
-          <caret line="56" column="10" lean-forward="true" selection-start-line="56" selection-start-column="10" selection-end-line="56" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#75#0" expanded="true" />
-            <marker date="1512327760000" expanded="true" signature="497:566" ph="INSERT INTO comment... " />
-            <marker date="1512327760000" expanded="true" signature="717:787" ph="SELECT * FRO... fiel" />
-            <marker date="1512327760000" expanded="true" signature="717:800" ph="SELECT cm.us... comment" />
-            <marker date="1512327760000" expanded="true" signature="717:872" ph="SELECT cm.us... comment" />
-            <marker date="1512327760000" expanded="true" signature="717:940" ph="SELECT cm.us... comment" />
-            <marker date="1512327760000" expanded="true" signature="717:987" ph="SELECT cm.us... comment" />
-            <marker date="1512327760000" expanded="true" signature="717:989" ph="SELECT cm.us... comment" />
-            <marker date="1512327760000" expanded="true" signature="1928:1970" ph="SELECT USERN... USER" />
-            <marker date="1512327760000" expanded="true" signature="2040:2082" ph="SELECT PASSW... USER" />
-            <marker date="1512327760000" expanded="true" signature="3344:3387" ph="INSERT INTO FILE... " />
-            <marker date="1512327760000" expanded="true" signature="3344:3389" ph="INSERT INTO FILE... " />
-            <marker date="1512327760000" expanded="true" signature="3344:3391" ph="INSERT INTO FILE... " />
-            <marker date="1512327760000" expanded="true" signature="3902:3970" ph="INSERT INTO USER... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -785,8 +776,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        <state relative-caret-position="123">
+          <caret line="24" column="28" lean-forward="true" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
           <folding>
             <element signature="e#0#75#0" expanded="true" />
             <marker date="1512327760000" expanded="true" signature="497:566" ph="INSERT INTO comment... " />
@@ -803,6 +794,14 @@
             <marker date="1512327760000" expanded="true" signature="3344:3391" ph="INSERT INTO FILE... " />
             <marker date="1512327760000" expanded="true" signature="3902:3970" ph="INSERT INTO USER... " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/env/pip-selfcheck.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
