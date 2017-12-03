@@ -16,6 +16,8 @@ comments = []
 
 usernameOutput = "user"
 
+
+
 def insert_comment(comment):
     cursor = g.db.cursor()
     comment = cursor.execute("INSERT INTO comment(username, comment, DATE) values(?,?, date('now'))", (usernameOutput, comment))
@@ -25,10 +27,12 @@ def insert_comment(comment):
 
 def fetch_all_comment():
     cursor = g.db.cursor()
-    #cursor.execute("SELECT cm.username, cm.comment, f.image FROM comment AS cm LEFT JOIN file AS f ON cm.commentid=f.commentid")
-    cursor.execute("SELECT cm.username, cm.comment, f.image, u.name, u.city FROM comment AS cm LEFT JOIN ")
+    cursor.execute("SELECT cm.username, cm.comment, f.image, u.name, u.city, cm.date FROM comment AS cm" +
+                   " LEFT JOIN file AS f ON cm.commentid=f.commentid" +
+                   " INNER JOIN USER U ON cm.username=U.username " +
+                   " ORDER BY cm.date desc")
+
     listt = list(cursor.fetchall())
-    listt.reverse()
     return listt
 
 

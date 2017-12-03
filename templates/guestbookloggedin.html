@@ -40,10 +40,10 @@
 
             <div style="margin-top: 100px">
             <h2>COMMENTS</h2>
-          {% for username, comment, image in comments %}
+          {% for username, comment, image, name, city, date in comments %}
               <div class="comment">
             <div>
-                {{ username }}
+                {{ username, name, city, date }}
             </div>
               <div>
                 {{ comment }}
