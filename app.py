@@ -58,16 +58,6 @@ def about():
     return render_template('about.html')
 
 
-@app.route('/eat/')
-def eat():
-    return render_template('eat.html')
-
-
-@app.route('/sightseeing/')
-def sightseeing():
-    return render_template('sightseeing.html')
-
-
 @app.route('/guestbook')
 def guestbook():
     return render_template("guestbook.html")
@@ -102,7 +92,6 @@ def login():
             return render_template("login.html")
 
     return render_template("login.html")
-
 
 
 

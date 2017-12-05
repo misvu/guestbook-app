@@ -43,15 +43,14 @@
           {% for username, comment, image, name, city, date in comments %}
               <div class="comment">
             <div>
-                {{ username, name, city, date }}
+                <p>{{ name}} from {{ city }} {{ date }}</p>
             </div>
               <div>
-                {{ comment }}
+                <p>Comment: {{ comment }}</p>
               </div>
                {% if image != None %}
                 <div>
                      <img src="images/files/{{ image }}" width="120" height="120">
-                <p>{{ image }}</p>
                 </div>
               {% endif %}
               </div>
